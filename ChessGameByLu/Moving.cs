@@ -20,7 +20,7 @@ namespace ChessGameByLu
             ChessPiece currentPiece = Board.boardCells[initialPosition];
 
             MovementRuleByName movementRule = new MovementRuleByName();
-            MovementRule rule = movementRule.GetRule(currentPiece.Name, currentPiece.Color);
+            MovementRule rule = movementRule.GetRule(currentPiece.Name);
 
             KeyValuePair<int, int> positionDifference = Board.CompareCells(initialPosition, finalPosition);
 
