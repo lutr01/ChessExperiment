@@ -26,24 +26,20 @@ namespace ChessGameByLu
 
             bool isMoveEligible = rule.possibleMoves.Contains(positionDifference);
 
-            if (Board.IsInBoundaries(finalPosition) && isMoveEligible)
+            ChessPiece destinationPiece = Board.GetFigureAtCell(finalPosition);
+            string colorOfPieceAtDestination = destinationPiece.Color;
+
+            if (Board.IsInBoundaries(finalPosition) 
+                && isMoveEligible 
+                && colorOfPieceAtDestination.ToLower() != currentPiece.Color.ToLower())
             {
                 Board.UpdatePosition(initialPosition, finalPosition);
             }
             else
             {
-                throw new ArgumentException("Chosen cell doesn't exist or move is not eligible");
+                throw new ArgumentException("Chosen cell doesn't exist, move is not eligible, or cell is occupied by same color piece");
             }
         }
-        /// <summary>
-        /// checks if there are pieces on the way or if the final cell is not occupied by same color piece
-        /// </summary>
-        /// <param name="initialPosition">starting cell</param>
-        /// <param name="finalPositio">final cell</param>
-        /// <returns></returns>
-        public bool IfCanMove(KeyValuePair<string, int> initialPosition, KeyValuePair<string, int> finalPositio)
-        {
-            return false;
-        }
+        
     }
 }
