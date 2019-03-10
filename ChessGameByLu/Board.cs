@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace ChessGameByLu
 {
+    /// <summary>
+    /// describes the board and holds all the current positions of chess pieces
+    /// </summary>
     public static class Board
     {
         public static Dictionary<KeyValuePair<string, int>, ChessPiece> boardCells =
@@ -28,17 +31,32 @@ namespace ChessGameByLu
             }
 
         }
-
+        /// <summary>
+        /// updates the position of the piece
+        /// </summary>
+        /// <param name="initialPosition">the starting position of the piece</param>
+        /// <param name="finalPosition">final position of the chess</param>
         public static void UpdatePosition(KeyValuePair<string, int> initialPosition,
             KeyValuePair<string, int> finalPosition)
         {
+            ChessPiece currentPiece = boardCells[initialPosition];
+            boardCells[initialPosition] = null;
+            boardCells[finalPosition] = currentPiece;
         }
-
+        /// <summary>
+        /// gets the current piece on the specific cell
+        /// </summary>
+        /// <param name="position">the key-value pair of letter and number indicating cell's address</param>
+        /// <returns></returns>
         public static ChessPiece GetFigureAtCell(KeyValuePair<string, int> position)
         {
             return boardCells[position];
         }
-
+        /// <summary>
+        /// Checks if the passed cell's address is inside of the board's boundaries
+        /// </summary>
+        /// <param name="position">the key-value pair of letter and number indicating cell's address</param>
+        /// <returns></returns>
         public static bool IsInBoundaries(KeyValuePair<string, int> position)
         {
             if (rows.Contains(position.Key.ToUpper()) && columns.Contains(position.Value))
@@ -47,7 +65,12 @@ namespace ChessGameByLu
             }
             return false;
         }
-
+        /// <summary>
+        /// Compares the initial and final positions' addresses
+        /// </summary>
+        /// <param name="initialPosition">address of initial cell</param>
+        /// <param name="finalPosition">address of final cell</param>
+        /// <returns>the resulted value in key-value pair representation</returns>
         public static KeyValuePair<int, int> CompareCells(KeyValuePair<string, int> initialPosition,
             KeyValuePair<string, int> finalPosition)
         {

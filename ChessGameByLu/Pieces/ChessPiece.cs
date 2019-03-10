@@ -1,5 +1,8 @@
 ﻿namespace ChessGameByLu.Pieces
 {
+    /// <summary>
+    /// describes the chess piece
+    /// </summary>
     public class ChessPiece
     {
         public ChessPiece(string name, string color)

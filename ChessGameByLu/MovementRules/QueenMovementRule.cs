@@ -2,6 +2,9 @@
 
 namespace ChessGameByLu.MovementRules
 {
+    /// <summary>
+    /// describes the possible move difference of columns and rows coordinates for Queen
+    /// </summary>
     public class QueenMovementRule : MovementRule
     {
         public QueenMovementRule()

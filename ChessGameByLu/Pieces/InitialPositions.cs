@@ -2,6 +2,9 @@
 
 namespace ChessGameByLu.Pieces
 {
+    /// <summary>
+    /// holds the information about the initial cells for the chess pieces
+    /// </summary>
     public static class InitialPositions
     {
         public static Dictionary<Dictionary<string, int>, ChessPiece> initalPosition =
@@ -25,7 +28,9 @@ namespace ChessGameByLu.Pieces
                     { "A", 7 }, {"B", 7 }, {"C", 7 }, {"D", 7 }, {"E", 7 }, {"F", 7 }, {"G", 7 }, {"H", 7 } },
                     new ChessPiece("pawn", "black") },
             };
-
+        /// <summary>
+        /// Sends the pieces to their initial positions
+        /// </summary>
         public static void SendToBoard()
         {
             foreach (var item in initalPosition)

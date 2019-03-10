@@ -44,19 +44,21 @@ namespace ChessGameByLu
 
             //Console.WriteLine($"Color for {player2} : {player2Color}");
 
-            Board.Initiate();
+            Board.Initiate(); // makes the board with all empty cells
 
             Console.WriteLine("board ready");
 
-            InitialPositions.SendToBoard();
+            InitialPositions.SendToBoard(); // puts all the pieces on the initial positions
 
             Console.WriteLine("pieces sent to the board");
 
-            Moving move = new Moving();
+            Moving move = new Moving(); // instanciates a move
 
-            move.Move(new KeyValuePair<string, int>("B", 1), new KeyValuePair<string, int>("A", 3));
+            move.Move(new KeyValuePair<string, int>("B", 1), new KeyValuePair<string, int>("A", 3)); // valid move of the knight
 
-            move.Move(new KeyValuePair<string, int>("A", 3), new KeyValuePair<string, int>("C", 4));
+            Console.WriteLine("Movement was made");
+
+            move.Move(new KeyValuePair<string, int>("A", 3), new KeyValuePair<string, int>("C", 4)); // valid move of the knight
 
             Console.WriteLine("Movement was made");
 
